@@ -8,25 +8,25 @@ const servicesData = [
   {
     id: 1,
     title: 'Kibertəhlükəsizlik Həlləri',
-    description: 'Şirkətinizin rəqəmsal aktivlərini ən son təhdidlərdən qorumaq üçün kompleks təhlükəsizlik auditləri, penetrasiya testləri və 24/7 monitorinq xidmətləri təqdim edirik.',
+    desc: 'Şirkətinizin rəqmsal aktivlərini ən son təhdidlərdən qorumaq üçün kompleks təhlükəsizlik auditləri, penetrasiya testləri və 24/7 monitorinq xidmətləri təqdim edirik.',
     icon: <ShieldCheck className="w-16 h-16 text-cyan-400 mb-4" />,
   },
   {
     id: 2,
     title: 'IT Konsaltinq və Strategiya',
-    description: 'Biznesinizin hədəflərinə çatmaq üçün texnoloji infrastrukturunuzu optimallaşdırırıq. Mövcud sistemlərin analizi, gələcək üçün yol xəritəsinin hazırlanması və effektiv həllərin tətbiqi.',
+    desc: 'Biznesinizin hədəflərinə çatmaq üçün texnoloji infrastrukturunuzu optimallaşdırırıq. Mövcud sistemlərin analizi, gələcək üçün yol xəritəsinin hazırlanması və effektiv həllərin tətbiqi.',
     icon: <Briefcase className="w-16 h-16 text-cyan-400 mb-4" />,
   },
   {
     id: 3,
     title: 'Şəbəkə İnfrastrukturu',
-    description: 'Sürətli, etibarlı və təhlükəsiz şəbəkə infrastrukturunun qurulması və idarə olunması. Lokal şəbəkələrdən (LAN) genişmiqyaslı (WAN) həllərə qədər bütün ehtiyaclarınızı qarşılayırıq.',
+    desc: 'Sürətli, etibarlı və təhlükəsiz şəbəkə infrastrukturunun qurulması və idarə olunması. Lokal şəbəkələrdən (LAN) genişmiqyaslı (WAN) həllərə qədər bütün ehtiyaclarınızı qarşılayırıq.',
     icon: <Network className="w-16 h-16 text-cyan-400 mb-4" />,
   },
   {
     id: 4,
     title: 'Bulud (Cloud) Xidmətləri',
-    description: 'Biznesinizi bulud texnologiyalarına miqrasiya edərək çeviklik və effektivlik qazandırırıq. AWS, Azure və Google Cloud platformaları ilə təhlükəsiz və dayanıqlı həllər.',
+    desc: 'Biznesinizi bulud texnologiyalarına miqrasiya edərək çeviklik və effektivlik qazandırırıq. AWS, Azure və Google Cloud platformaları ilə təhlükəsiz və dayanıqlı həllər.',
     icon: <CloudCog className="w-16 h-16 text-cyan-400 mb-4" />,
   },
 ];
@@ -85,7 +85,7 @@ const ServicesSection = () => {
               >
                 {selectedTab.icon}
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{selectedTab.title}</h3>
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed">{selectedTab.description}</p>
+                <p className="text-gray-300 text-base md:text-lg leading-relaxed">{selectedTab.desc}</p>
               </motion.div>
             </AnimatePresence>
           </div>
