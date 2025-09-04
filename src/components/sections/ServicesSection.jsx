@@ -29,12 +29,6 @@ const servicesData = [
     description: 'Biznesinizi bulud texnologiyalarına miqrasiya edərək çeviklik və effektivlik qazandırırıq. AWS, Azure və Google Cloud platformaları ilə təhlükəsiz və dayanıqlı həllər.',
     icon: <CloudCog className="w-16 h-16 text-cyan-400 mb-4" />,
   },
-  {
-    id: 5,
-    title: 'Cyber security',
-    descript
-
-  }
 ];
 
 const ServicesSection = () => {
