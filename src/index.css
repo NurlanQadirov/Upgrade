@@ -1,0 +1,42 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+  font-family: 'Satoshi', sans-serif;
+  background-color: #020617; 
+  scrollbar-width: thin;
+  scrollbar-color: #22d3ee #0f172a;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #22d3ee;
+  border-radius: 10px;
+  border: 2px solid #0f172a;
+}
+
+
+.bg-grid-pattern {
+    background-image:
+        linear-gradient(to right, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+}
+
+.prism-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Məzmunun arxasında qalması üçün */
+  opacity: 0.5; /* Çox diqqət çəkməməsi üçün şəffaflığı azaldırıq */
+}
