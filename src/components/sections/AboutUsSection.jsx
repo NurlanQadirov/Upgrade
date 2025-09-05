@@ -1,6 +1,7 @@
 // src/components/sections/AboutUsSection.jsx
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, useAnimation, animate } from 'framer-motion';
+import aboutUsImage from '../../assets/about-us-image.webp'; // <-- PROBLEM BU SƏTRİN OLMAMASI İDİ
 
 // Rəqəmləri canlandıran təkrar istifadə edilə bilən komponent
 function AnimatedCounter({ to, text }) {
@@ -53,11 +54,12 @@ const AboutUsSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {/* TÖVSİYƏ: Bu şəkili öz komandanızın və ya ofisinizin peşəkar şəkili ilə əvəz edin */}
           <img 
-            src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=2071&auto=format&fit=crop" 
+            src={aboutUsImage} 
             alt="Upgrade Solutions Team"
             className="w-full h-full object-cover"
+            width="600"
+            height="800"
           />
         </motion.div>
 
@@ -75,7 +77,6 @@ const AboutUsSection = () => {
             Biz Upgrade Solutions olaraq, müasir bizneslərin qarşılaşdığı mürəkkəb texnoloji problemlərə innovativ və etibarlı həllər təqdim edirik. Məqsədimiz, tərəfdaşlarımızın rəqəmsal dünyada təhlükəsiz və rəqabətədavamlı olmasını təmin etməkdir.
           </p>
           
-          {/* Hərəkətli Rəqəmlər */}
           <div className="grid grid-cols-3 gap-4">
             <AnimatedCounter to={10} text="İllik Təcrübə" />
             <AnimatedCounter to={50} text="Uğurlu Layihə" />
