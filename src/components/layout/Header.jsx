@@ -1,7 +1,8 @@
 // src/components/layout/Header.jsx
-import React, { useState } from 'react'; // <--- DÜZƏLİŞ BURADADIR
+import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom'; // react-router üçün Link importu
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,10 +15,10 @@ const Header = () => {
   });
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Partners', href: '#partners' },
-    { name: 'About Us', href: '#about' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Partners', href: '/#partners' },
+    { name: 'About Us', href: '/#about' },
   ];
 
   const mobileMenuVariants = {
@@ -41,9 +42,10 @@ const Header = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="#home" className="text-2xl font-bold text-white">
+              {/* Loqonun şrifti "font-heading" ilə yeniləndi */}
+              <Link to="/#home" className="text-2xl font-bold text-white font-heading">
                 Upgrade<span className="text-cyan-400">.</span>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Naviqasiya */}
@@ -51,12 +53,12 @@ const Header = () => {
               <ul className="flex items-baseline space-x-4">
                 {navLinks.map(link => (
                   <li key={link.name} className="relative group">
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
                   </li>
                 ))}
@@ -103,15 +105,15 @@ const Header = () => {
         className="fixed top-0 left-0 w-full h-screen bg-slate-950 z-20 md:hidden pt-20"
       >
         <ul className="flex flex-col items-center justify-center h-full space-y-8">
-          {[...navLinks, { name: 'Contact Us', href: '#contact' }].map(link => (
+          {[...navLinks, { name: 'Contact Us', href: '/#contact' }].map(link => (
             <li key={link.name}>
-              <a
-                href={link.href}
+              <Link
+                to={link.href}
                 onClick={() => setIsOpen(false)}
                 className="text-gray-300 hover:text-white text-2xl font-medium"
               >
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
           <li className="pt-8">

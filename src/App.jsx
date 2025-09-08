@@ -1,26 +1,23 @@
 // src/App.jsx
 import React from 'react';
-import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
-import ServicesSection from './components/sections/ServicesSection';
-import PartnersSection from './components/sections/PartnersSection';
-import AboutUsSection from './components/sections/AboutUsSection';
-import ContactSection from './components/sections/ContactSection'; // Yeni komponenti import edirik
-import Footer from './components/layout/Footer'; // Yeni komponenti import edirik
+import Footer from './components/layout/Footer';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div className="bg-slate-950 text-white">
-      <Header />
-      <main>
-        <div id="home"><Home /></div>
-        <div id="services"><ServicesSection /></div>
-        <div id="partners"><PartnersSection /></div>
-        <div id="about"><AboutUsSection /></div>
-        <div id="contact"><ContactSection /></div>
-      </main>
-      <Footer />
-    </div>
+    // Bütün proqramı BrowserRouter ilə əhatə edirik
+    <BrowserRouter>
+      <div className="bg-slate-950 text-white">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          {/* Gələcəkdə digər səhifələr üçün marşrutlar (routes) bura əlavə olunacaq */}
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

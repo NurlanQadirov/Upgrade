@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Satoshi', ...defaultTheme.fontFamily.sans],
+        heading: ['"Space Grotesk"', ...defaultTheme.fontFamily.sans],
       },
     },
   },
