@@ -40,11 +40,11 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 1.0 }} // Animasiyanın gecikməsini artırdıq
-          whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(34,211,288)" }}
+          whileHover={{ scale: 1.05, boxShadow: "0px 0px 12px #0055ff" }}
           whileTap={{ scale: 0.95 }}
-          className="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold py-3 px-8 rounded-full transition-colors duration-300"
+          className="bg-upgrade-blue hover:bg-upgrade-blue-light text-white font-bold py-3 px-8 rounded-full transition-colors duration-300"
         >
-          Xidmətlərimiz
+          Services
         </motion.button>
       </div>
     </section>

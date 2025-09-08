@@ -1,9 +1,9 @@
-// src/pages/HomePage.jsx
 import React, { Suspense } from 'react';
 import Hero from '../components/sections/Hero';
 
 // Digər bölmələri lazy ilə import edirik
 const ServicesSection = React.lazy(() => import('../components/sections/ServicesSection'));
+const SolutionsSection = React.lazy(() => import('../components/sections/SolutionsSection')); // Yeni komponenti import edirik
 const PartnersSection = React.lazy(() => import('../components/sections/PartnersSection'));
 const AboutUsSection = React.lazy(() => import('../components/sections/AboutUsSection'));
 const ContactSection = React.lazy(() => import('../components/sections/ContactSection'));
@@ -15,6 +15,8 @@ const HomePage = () => {
 
       <Suspense fallback={<div>Loading...</div>}>
         <div id="services"><ServicesSection /></div>
+        {/* YENİ BÖLMƏNİ BURA ƏLAVƏ EDİRİK */}
+        <SolutionsSection />
         <div id="partners"><PartnersSection /></div>
         <div id="about"><AboutUsSection /></div>
         <div id="contact"><ContactSection /></div>

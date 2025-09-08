@@ -34,8 +34,8 @@ function AnimatedCounter({ to, text }) {
       initial={{ opacity: 0, y: 20 }}
       animate={controls}
     >
-      <span ref={ref} className="text-4xl md:text-5xl font-bold text-cyan-400">0</span>
-      <span className="text-4xl md:text-5xl font-bold text-cyan-400">+</span>
+      <span ref={ref} className="text-4xl md:text-5xl font-bold text-upgrade-blue">0</span>
+      <span className="text-4xl md:text-5xl font-bold text-upgrade-blue">+</span>
       <p className="text-sm md:text-base text-gray-400 mt-2">{text}</p>
     </motion.div>
   );
@@ -71,7 +71,7 @@ const AboutUsSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Rəqəmsal Təhlükəsizliyin <span className="text-cyan-400">Memarları</span>
+            Rəqəmsal Təhlükəsizliyin <span className="text-upgrade-blue">Memarları</span>
           </h2>
           <p className="text-gray-300 text-lg leading-relaxed mb-8">
             Biz Upgrade Solutions olaraq, müasir bizneslərin qarşılaşdığı mürəkkəb texnoloji problemlərə innovativ və etibarlı həllər təqdim edirik. Məqsədimiz, tərəfdaşlarımızın rəqəmsal dünyada təhlükəsiz və rəqabətədavamlı olmasını təmin etməkdir.

@@ -15,22 +15,22 @@ const ContactSection = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Bizimlə <span className="text-cyan-400">Əlaqə</span> Saxlayın
+            Bizimlə <span className="text-upgrade-blue">Əlaqə</span> Saxlayın
           </h2>
           <p className="text-gray-400 text-lg mb-8">
             Biznesiniz üçün ən yaxşı İT həllərini axtarırsınızsa, mütəxəssislərimizə güvənin.
           </p>
           <div className="space-y-4">
             <a href="mailto:info@upgrade.az" className="flex items-center group">
-              <Mail className="w-6 h-6 text-cyan-400 mr-4" />
+              <Mail className="w-6 h-6 text-upgrade-blue mr-4" />
               <span className="text-gray-300 group-hover:text-white transition-colors">info@upgrade.az</span>
             </a>
             <a href="tel:+994123456789" className="flex items-center group">
-              <Phone className="w-6 h-6 text-cyan-400 mr-4" />
+              <Phone className="w-6 h-6 text-upgrade-blue mr-4" />
               <span className="text-gray-300 group-hover:text-white transition-colors">+994 (XX) XXX XX XX</span>
             </a>
             <div className="flex items-start group">
-              <MapPin className="w-6 h-6 text-cyan-400 mr-4 mt-1" />
+              <MapPin className="w-6 h-6 text-upgrade-blue mr-4 mt-1" />
               <span className="text-gray-300 group-hover:text-white transition-colors">Bakı, Azərbaycan</span>
             </div>
           </div>
