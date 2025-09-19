@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import Hero from '../components/sections/Hero';
 
-// Digər bölmələri lazy ilə import edirik
+
 const ServicesSection = React.lazy(() => import('../components/sections/ServicesSection'));
-const SolutionsSection = React.lazy(() => import('../components/sections/SolutionsSection')); // Yeni komponenti import edirik
+const SolutionsSection = React.lazy(() => import('../components/sections/SolutionsSection')); 
 const PartnersSection = React.lazy(() => import('../components/sections/PartnersSection'));
 const AboutUsSection = React.lazy(() => import('../components/sections/AboutUsSection'));
 const ContactSection = React.lazy(() => import('../components/sections/ContactSection'));

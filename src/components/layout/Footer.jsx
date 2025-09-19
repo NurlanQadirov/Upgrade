@@ -1,8 +1,7 @@
-// src/components/layout/Footer.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Facebook } from 'lucide-react';
-import { Link } from 'react-router-dom'; // Link komponentini import edirik
+import { Link } from 'react-router-dom'; 
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

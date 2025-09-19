@@ -1,51 +1,55 @@
-// src/components/sections/Hero.jsx
 import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { useIsMobile } from '../../hooks/useIsMobile';
-import AnimatedTextCharacter from '../ui/AnimatedTextCharacter'; // Yeni komponenti import edirik
+import { Link } from 'react-router-dom';
+import AnimatedTextCharacter from '../ui/AnimatedTextCharacter';
 
-const Plasma = React.lazy(() => import('../backgrounds/Plasma'));
+const InteractivePlexus = React.lazy(() => import('../backgrounds/InteractivePlexus'));
 
 const Hero = () => {
-  const isMobile = useIsMobile();
-
   return (
-    <section className="relative h-screen flex items-center justify-start overflow-hidden px-8 md:px-20">
-      <div className="absolute inset-0 z-0">
-        {!isMobile && (
-          <Suspense fallback={<div className="w-full h-full bg-slate-950" />}>
-            <Plasma mouseInteractive={false} />
-          </Suspense>
-        )}
-        {isMobile && <div className="w-full h-full bg-gradient-to-br from-slate-950 to-slate-900" />}
+    <section id="home" className="relative h-screen w-full flex items-center justify-start overflow-hidden px-8 sm:px-12 md:px-20">
+      
+      <div className="absolute inset-0 z-0 bg-slate-950">
+        <Suspense fallback={<div className="w-full h-full bg-slate-950" />}>
+          <InteractivePlexus />
+        </Suspense>
       </div>
 
-      <div className="relative z-10 text-left">
-        {/* Köhnə motion.h1-i yeni AnimatedTextCharacter ilə əvəz edirik */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+
+      <div className="relative z-20 text-left">
+        
+        {/* YENİ BAŞLIQ */}
         <AnimatedTextCharacter 
           text="Secure with U.S." 
-          className="text-5xl md:text-7xl font-bold mb-4 text-white font-heading" // Yeni şrifti tətbiq edirik
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-heading mb-6"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }} // Animasiyanın gecikməsini artırdıq
-          className="text-lg md:text-xl text-gray-300 max-w-xl mb-8 font-sans" // font-sans istifadə etdiyini təsdiqləyirik
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10 font-sans"
         >
+          {/* YENİ AÇIQLAMA */}
           We provide risk-based approach to cybersecurity by "right" controls" in "right" time!
         </motion.p>
         
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 1.0 }} // Animasiyanın gecikməsini artırdıq
-          whileHover={{ scale: 1.05, boxShadow: "0px 0px 12px #0055ff" }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-upgrade-blue hover:bg-upgrade-blue-light text-white font-bold py-3 px-8 rounded-full transition-colors duration-300"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.4 }}
         >
-          Services
-        </motion.button>
+          <Link to="/#services">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(0, 85, 255, 0.6)" }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-upgrade-blue hover:bg-upgrade-blue-light text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 text-lg"
+            >
+              Həllərimizi Kəşf Edin
+            </motion.button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

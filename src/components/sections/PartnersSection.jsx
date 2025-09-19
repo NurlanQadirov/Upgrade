@@ -1,17 +1,14 @@
-// src/components/sections/PartnersSection.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// NÜMUNƏ: Siz bu importları öz loqo fayllarınızla əvəz etməlisiniz.
-// Məsələn: import PartnerLogo1 from '../../assets/logos/partner1.svg';
 const partnerLogos = [
   "https://cdn.worldvectorlogo.com/logos/microsoft-5.svg",
   "https://cdn.worldvectorlogo.com/logos/cisco-2.svg",
-  "https://cdn.worldvectorlogo.com/logos/fortinet.svg",
-  "https://cdn.worldvectorlogo.com/logos/hewlett-packard-enterprise-2.svg",
-  "https://cdn.worldvectorlogo.com/logos/vmware.svg",
-  "https://cdn.worldvectorlogo.com/logos/veeam-2.svg",
-  "https://cdn.worldvectorlogo.com/logos/oracle-10.svg"
+  "https://cdn.worldvectorlogo.com/logos/microsoft-5.svg",
+  "https://cdn.worldvectorlogo.com/logos/cisco-2.svg",
+  "https://cdn.worldvectorlogo.com/logos/microsoft-5.svg",
+  "https://cdn.worldvectorlogo.com/logos/cisco-2.svg",
+  "https://cdn.worldvectorlogo.com/logos/microsoft-5.svg"
 ];
 
 const carouselVariants = {
@@ -21,7 +18,7 @@ const carouselVariants = {
       x: {
         repeat: Infinity,
         repeatType: 'loop',
-        duration: 30, // Hərəkət sürətini buradan tənzimləyə bilərsiniz
+        duration: 30,
         ease: 'linear',
       },
     },
@@ -49,7 +46,6 @@ const PartnersSection = () => {
             variants={carouselVariants}
             animate="animate"
           >
-            {/* Animasiyanın qüsursuz olması üçün loqo siyahısını 2 dəfə təkrarlayırıq */}
             {[...partnerLogos, ...partnerLogos].map((logoUrl, index) => (
               <div key={index} className="flex-shrink-0 mx-8 md:mx-12" style={{ minWidth: '150px' }}>
                 <img

@@ -1,7 +1,6 @@
-// src/components/sections/AboutUsSection.jsx
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, useAnimation, animate } from 'framer-motion';
-import aboutUsImage from '../../assets/about-us-image.webp'; // <-- PROBLEM BU SƏTRİN OLMAMASI İDİ
+import aboutUsImage from '../../assets/about-us-image.webp'; 
 
 // Rəqəmləri canlandıran təkrar istifadə edilə bilən komponent
 function AnimatedCounter({ to, text }) {

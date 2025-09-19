@@ -1,12 +1,10 @@
-// src/components/sections/ServicesSection.jsx
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Network, CloudCog, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-// Xidmətlər haqqında məlumatları burada saxlayaq
-// servicesData massivinin yeni versiyası
+
 const servicesData = [
   {
     id: 1,
