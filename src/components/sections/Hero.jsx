@@ -15,11 +15,12 @@ const Hero = () => {
         </Suspense>
       </div>
 
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+      {/* YENİ ƏLAVƏ: Kod layı */}
+      <div className="code-overlay absolute inset-0 z-10 opacity-50"></div>
 
-      <div className="relative z-20 text-left">
-        
-        {/* YENİ BAŞLIQ */}
+      <div className="absolute inset-0 z-20 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+
+      <div className="relative z-30 text-left">
         <AnimatedTextCharacter 
           text="Secure with U.S." 
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-heading mb-6"
@@ -31,7 +32,6 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10 font-sans"
         >
-          {/* YENİ AÇIQLAMA */}
           We provide risk-based approach to cybersecurity by "right" controls" in "right" time!
         </motion.p>
         
@@ -46,7 +46,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-upgrade-blue hover:bg-upgrade-blue-light text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 text-lg"
             >
-              Həllərimizi Kəşf Edin
+              Our services
             </motion.button>
           </Link>
         </motion.div>

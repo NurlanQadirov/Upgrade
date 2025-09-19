@@ -18,7 +18,7 @@ const InteractivePlexus = () => {
         interactivity: {
             events: {
                 onHover: {
-                    enable: true,
+                    enable: false,
                     mode: "repulse", 
                 },
                 resize: true,

@@ -38,3 +38,32 @@ body::-webkit-scrollbar-thumb {
   z-index: 1; /* Məzmunun arxasında qalması üçün */
   opacity: 0.5; /* Çox diqqət çəkməməsi üçün şəffaflığı azaldırıq */
 }
+
+.code-overlay {
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 255, 255, 0.05),
+      rgba(0, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 255, 255, 0.05),
+      rgba(0, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 20px
+    );
+  background-size: 40px 40px;
+  animation: move-bg 60s linear infinite;
+}
+
+@keyframes move-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 400px 400px;
+  }
+}
