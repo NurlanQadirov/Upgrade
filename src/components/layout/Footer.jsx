@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // YENİ: Solutions üçün naviqasiya linki əlavə edildi
   const navLinks = [
     { name: 'Home', href: '/#home' },
     { name: 'Services', href: '/#services' },
+    { name: 'Solutions', href: '/#solutions' },
     { name: 'Partners', href: '/#partners' },
     { name: 'About Us', href: '/#about' },
   ];
@@ -21,7 +23,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-slate-950 text-white relative pt-20">
-      {/* Dalğalı Keçid (SVG) */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg
           data-name="Layer 1"
@@ -46,7 +47,6 @@ const Footer = () => {
         className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Sütun 1: Loqo */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/#home" className="text-3xl font-bold font-heading">
               Upgrade<span className="text-upgrade-blue">.</span>
@@ -56,7 +56,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Sütun 2: Keçidlər */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Menyu</h3>
             <ul className="space-y-2">
@@ -70,17 +69,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Sütun 3: Əlaqə */}
+          {/* DƏYİŞİKLİK: Əlaqə məlumatları yeniləndi */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Əlaqə</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>info@upgrade.az</li>
-              <li>+994 (XX) XXX XX XX</li>
-              <li>Bakı, Azərbaycan</li>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li>info@upgrade.az [cite: 401]</li>
+              <li>(+994 12) 526 66 99 [cite: 400]</li>
+              <li>Ə. Rəcəbli 241B, Çinar Park BM 2 [cite: 399]</li>
             </ul>
           </div>
 
-          {/* Sütun 4: Sosial Media */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Bizi İzləyin</h3>
             <div className="flex space-x-4">

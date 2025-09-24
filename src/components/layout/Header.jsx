@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+// YENİ: Loqo şəkli import edilir
+import fullLogo from '../../assets/logo-full.png'; 
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -33,7 +35,7 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
             ? 'bg-slate-900/50 backdrop-blur-lg border-b border-slate-800'
             : 'bg-transparent'
@@ -41,10 +43,14 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+            {/* DƏYİŞİKLİK: Mətn loqo şəkli ilə əvəz edildi */}
             <div className="flex-shrink-0">
-              <Link to="/#home" className="text-2xl font-bold text-white font-heading">
-                Upgrade<span className="text-upgrade-blue">.</span>
+              <Link to="/#home" className="flex items-center">
+                <img 
+                  src={fullLogo} 
+                  alt="Upgrade Solutions Logo" 
+                  className="h-40 w-auto" 
+                />
               </Link>
             </div>
 
@@ -59,13 +65,12 @@ const Header = () => {
                     >
                       {link.name}
                     </Link>
-                    {/* DÜZƏLİŞ BURADADIR: "text-upgrade-blue" -> "bg-upgrade-blue" */}
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-upgrade-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
                   </li>
                 ))}
               </ul>
 
-              {/* Dil dəyişmə düyməsi (Hover ilə işləyən versiya) */}
+              {/* DƏYİŞİKLİK: Dil dəyişmə düyməsi hover ilə işləyən formata qaytarıldı */}
               <div className="relative group">
                 <div className="flex items-center text-gray-300 hover:text-white text-sm font-medium cursor-pointer">
                   <span>EN</span>
@@ -112,7 +117,7 @@ const Header = () => {
         animate={isMobileMenuOpen ? 'open' : 'closed'}
         variants={mobileMenuVariants}
         transition={{ type: 'tween', ease: 'easeInOut', duration: 0.3 }}
-        className="fixed top-0 left-0 w-full h-screen bg-slate-950 z-20 md-hidden pt-20"
+        className="fixed top-0 left-0 w-full h-screen bg-slate-950 z-40 md:hidden pt-20"
       >
         <ul className="flex flex-col items-center justify-center h-full space-y-8">
           {[...navLinks, { name: 'Contact Us', href: '/#contact' }].map(link => (

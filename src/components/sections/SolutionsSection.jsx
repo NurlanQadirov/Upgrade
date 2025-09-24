@@ -1,22 +1,23 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Database, Shield, Server } from 'lucide-react';
+import { Shield, BarChart2, KeyRound } from 'lucide-react'; // Dəyişiklik: İkonlar məzmuna uyğunlaşdırıldı
 
+// DƏYİŞİKLİK: Məlumatlar kataloqdan götürüldü
 const solutionsData = [
   {
-    icon: <Server size={40} className="text-upgrade-blue" />,
-    title: "Data Mərkəzi Həlləri",
-    description: "Müasir standartlara cavab verən, etibarlı və yüksək performanslı data mərkəzlərinin qurulması və idarə edilməsi.",
-  },
-  {
     icon: <Shield size={40} className="text-upgrade-blue" />,
-    title: "Şəbəkə Təhlükəsizliyi", 
-    description: "Fortinet, Cisco kimi qabaqcıl texnologiyalarla biznesinizi daxili və xarici təhdidlərdən qoruyan çoxsəviyyəli təhlükəsizlik.",
+    title: "NGFW (Next-Generation Firewall)",
+    description: "Ənənəvi firewall sistemlərindən daha qabaqcıl təhlükəsizlik funksiyaları təqdim edir, tətbiq səviyyəsində təhlükəsizliyi təmin edir və zərərli proqramları aşkar edir. [cite: 165, 166]",
   },
   {
-    icon: <Database size={40} className="text-upgrade-blue" />,
-    title: "Məlumatların Qorunması",
-    description: "Vacib məlumatlarınızın itirilməsinin qarşısını alan back-up və bərpa (disaster recovery) həlləri ilə fasiləsiz işləyin.",
+    icon: <BarChart2 size={40} className="text-upgrade-blue" />,
+    title: "SIEM (Security Information and Event Management)", 
+    description: "Təhlükəsizlik hadisələrini real vaxt rejimində izləmək, analiz etmək və insidentlərə reaksiya vermək üçün mərkəzi platforma təqdim edən təhlükəsizlik həllidir. [cite: 181, 182, 183]",
+  },
+  {
+    icon: <KeyRound size={40} className="text-upgrade-blue" />,
+    title: "PAM (Privileged Access Management)",
+    description: "Yüksək səlahiyyətli istifadəçilərin sistemlərə, şəbəkələrə və kritik məlumatlara giriş hüquqlarını idarə edən, məhdudlaşdıran və nəzarətdə saxlayan təhlükəsizlik həllidir. [cite: 195, 196]",
   },
 ];
 
@@ -29,7 +30,6 @@ const SolutionsSection = () => {
     offset: ['start center', 'end end'],
   });
 
-  // Scroll progress-ə əsasən aktiv kartı müəyyən etmək
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
       const totalCards = solutionsData.length;
@@ -42,7 +42,8 @@ const SolutionsSection = () => {
   }, [scrollYProgress]);
 
   return (
-    <div className="bg-slate-900">
+    // DƏYİŞİKLİK: Bölməyə ID əlavə edildi ki, naviqasiya işləsin
+    <div id="solutions" className="bg-slate-900">
       {/* Header bölməsi */}
       <div className="text-center py-20 px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -63,32 +64,27 @@ const SolutionsSection = () => {
           {solutionsData.map((solution, index) => {
             const totalCards = solutionsData.length;
             
-            // Hər kartın scroll aralığı
             const cardStart = index / totalCards;
             const cardEnd = (index + 1) / totalCards;
             
-            // Kartın scale animasiyası
             const scale = useTransform(
               scrollYProgress,
               [cardStart, cardStart + 0.2, cardEnd - 0.2, cardEnd],
               [0.85, 1, 0.95, 0.8 - index * 0.05]
             );
 
-            // Y pozisiyası
             const y = useTransform(
               scrollYProgress,
               [cardStart, cardStart + 0.2, cardEnd - 0.2, cardEnd],
               [100, 0, -20, -50 - index * 30]
             );
 
-            // Kartın şəffaflığı
             const cardOpacity = useTransform(
               scrollYProgress,
               [cardStart, cardStart + 0.1, cardEnd - 0.1, cardEnd],
               [0, 1, 1, 0.4]
             );
-
-            // Bu kartın aktiv olub-olmadığını yoxlayırıq
+            
             const isActive = activeCardIndex === index;
 
             return (
@@ -103,9 +99,8 @@ const SolutionsSection = () => {
                 className="absolute w-full max-w-4xl"
               >
                 <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-700 border border-slate-600/60 rounded-2xl shadow-2xl backdrop-blur-sm overflow-hidden">
-                  <div className="h-80 w-full relative">
+                  <div className="h-96 md:h-80 w-full relative">
                     
-                    {/* MƏZMUN - YALNIZ AKTİV KARTDA GÖRÜNÜr */}
                     {isActive && (
                       <motion.div 
                         initial={{ opacity: 0 }}
@@ -114,22 +109,20 @@ const SolutionsSection = () => {
                         transition={{ duration: 0.4 }}
                         className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between"
                       >
-                        {/* Icon və başlıq */}
                         <div className="flex items-start gap-6">
                           <div className="bg-gradient-to-br from-cyan-400/25 to-blue-500/25 p-4 rounded-xl border border-cyan-400/40 flex-shrink-0 shadow-lg">
                             {solution.icon}
                           </div>
                           <div className="flex-1">
-                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                               {solution.title}
                             </h3>
-                            <p className="text-lg text-gray-100 leading-relaxed font-medium">
+                            <p className="text-md md:text-lg text-gray-100 leading-relaxed font-medium">
                               {solution.description}
                             </p>
                           </div>
                         </div>
 
-                        {/* Kart nömrəsi */}
                         <div className="flex justify-end mt-6">
                           <div className="text-6xl md:text-8xl font-black text-white/25 select-none">
                             0{index + 1}
@@ -137,8 +130,7 @@ const SolutionsSection = () => {
                         </div>
                       </motion.div>
                     )}
-
-                    {/* Dekorativ elementlər */}
+                    
                     <div className="absolute top-4 right-4 w-24 h-24 bg-gradient-to-br from-cyan-400/8 to-transparent rounded-full blur-2xl"></div>
                     <div className="absolute bottom-4 left-4 w-20 h-20 bg-gradient-to-tr from-blue-500/8 to-transparent rounded-full blur-xl"></div>
                   </div>
@@ -148,8 +140,7 @@ const SolutionsSection = () => {
           })}
         </div>
       </div>
-
-      {/* Alt boşluq */}
+      
       <div className="h-32"></div>
     </div>
   );

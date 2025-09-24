@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, useAnimation, animate } from 'framer-motion';
 import aboutUsImage from '../../assets/about-us-image.webp'; 
+import { CheckCircle } from 'lucide-react'; // Yeni ikon
 
-// Rəqəmləri canlandıran təkrar istifadə edilə bilən komponent
+// ... AnimatedCounter komponenti olduğu kimi qalır ...
 function AnimatedCounter({ to, text }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
@@ -15,7 +16,6 @@ function AnimatedCounter({ to, text }) {
         y: 0,
         transition: { duration: 0.5 }
       });
-      // Rəqəm animasiyası
       animate(0, to, {
         duration: 2,
         onUpdate(value) {
@@ -42,12 +42,20 @@ function AnimatedCounter({ to, text }) {
 
 
 const AboutUsSection = () => {
+  // YENİ: Kataloqdan üstünlüklər
+  const advantages = [
+    "Təcrübə və Ekspertiza [cite: 12]",
+    "Fərdiləşdirilmiş Həllər [cite: 378]",
+    "Proaktiv Yanaşma [cite: 379]",
+    "24/7 Dəstək [cite: 15]"
+  ];
+
   return (
     <div className="min-h-screen bg-slate-950 flex items-center py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
         {/* Sol Sütun: Şəkil */}
         <motion.div 
-          className="w-full h-80 md:h-full rounded-lg overflow-hidden"
+          className="w-full h-80 md:h-[500px] rounded-lg overflow-hidden"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -72,9 +80,20 @@ const AboutUsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Rəqəmsal Təhlükəsizliyin <span className="text-upgrade-blue">Memarları</span>
           </h2>
+          {/* DƏYİŞİKLİK: Mətn kataloqdan götürüldü */}
           <p className="text-gray-300 text-lg leading-relaxed mb-8">
-            Biz Upgrade Solutions olaraq, müasir bizneslərin qarşılaşdığı mürəkkəb texnoloji problemlərə innovativ və etibarlı həllər təqdim edirik. Məqsədimiz, tərəfdaşlarımızın rəqəmsal dünyada təhlükəsiz və rəqabətədavamlı olmasını təmin etməkdir.
+            Biz, Upgrade Solutions, müasir texnologiyaların inkişafı ilə birlikdə artan kibertəhdidlərə qarşı etibarlı müdafiə təmin edən aparıcı kibertəhlükəsizlik şirkətiyik. [cite: 8] Fəaliyyətimizin əsas məqsədi rəqəmsal aktivlərinizi qorumaq, məlumatların gizliliyini, tamlığını və əlçatanlığını təmin etməkdir. [cite: 9]
           </p>
+          
+          {/* YENİ: Üstünlüklər hissəsi */}
+          <div className="grid grid-cols-2 gap-4 mb-10">
+            {advantages.map((adv, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-upgrade-blue" />
+                <span className="text-gray-300">{adv}</span>
+              </div>
+            ))}
+          </div>
           
           <div className="grid grid-cols-3 gap-4">
             <AnimatedCounter to={10} text="İllik Təcrübə" />

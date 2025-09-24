@@ -19,18 +19,19 @@ const ContactSection = () => {
           <p className="text-gray-400 text-lg mb-8">
             Biznesiniz üçün ən yaxşı İT həllərini axtarırsınızsa, mütəxəssislərimizə güvənin.
           </p>
+          {/* DƏYİŞİKLİK: Əlaqə məlumatları yeniləndi */}
           <div className="space-y-4">
             <a href="mailto:info@upgrade.az" className="flex items-center group">
               <Mail className="w-6 h-6 text-upgrade-blue mr-4" />
-              <span className="text-gray-300 group-hover:text-white transition-colors">info@upgrade.az</span>
+              <span className="text-gray-300 group-hover:text-white transition-colors">info@upgrade.az [cite: 401]</span>
             </a>
-            <a href="tel:+994123456789" className="flex items-center group">
+            <a href="tel:+994125266699" className="flex items-center group">
               <Phone className="w-6 h-6 text-upgrade-blue mr-4" />
-              <span className="text-gray-300 group-hover:text-white transition-colors">+994 (XX) XXX XX XX</span>
+              <span className="text-gray-300 group-hover:text-white transition-colors">(+994 12) 526 66 99 [cite: 400]</span>
             </a>
             <div className="flex items-start group">
-              <MapPin className="w-6 h-6 text-upgrade-blue mr-4 mt-1" />
-              <span className="text-gray-300 group-hover:text-white transition-colors">Bakı, Azərbaycan</span>
+              <MapPin className="w-6 h-6 text-upgrade-blue mr-4 mt-1 flex-shrink-0" />
+              <span className="text-gray-300 group-hover:text-white transition-colors">Ə. Rəcəbli 241B, Çinar Park BM 2, AZ1075 [cite: 399]</span>
             </div>
           </div>
         </motion.div>
@@ -43,9 +44,9 @@ const ContactSection = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="w-full h-80 md:h-full"
         >
-          {/* AŞAĞIDAKI `iframe` SƏTRİNİN `src` ATTRIBUTE-NA ÖZ ADRESİNİZİN GOOGLE MAPS LINKİNİ ƏLAVƏ EDİN */}
+          {/* DƏYİŞİKLİK: Google Maps linki real ünvana uyğunlaşdırıldı */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.46747225139!2d49.85175627627471!3d40.37798367144983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d0f985b1a37%3A0x6b8d2b2c451f2e48!2sBaku%2C%20Azerbaijan!5e0!3m2!1sen!2s!4v1693892782787!5m2!1sen!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.163299718428!2d49.8706245766299!3d40.40523475573434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030631315b81db3%3A0x1d46df317a361323!2sChinar%20Park%20Business%20Center!5e0!3m2!1sen!2saz!4v1727088934149!5m2!1sen!2saz"
             width="100%"
             height="100%"
             style={{ border: 0 }}
