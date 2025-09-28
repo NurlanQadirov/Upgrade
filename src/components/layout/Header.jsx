@@ -17,9 +17,9 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', href: '/#home' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Partners', href: '/#partners' },
-    { name: 'About Us', href: '/#about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Partners', href: '/partners' },
+    { name: 'About Us', href: '/about' },
   ];
   
   const languages = ['AZ', 'EN', 'UZ', 'RU'];

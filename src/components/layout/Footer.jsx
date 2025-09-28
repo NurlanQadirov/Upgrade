@@ -9,10 +9,10 @@ const Footer = () => {
   // YENİ: Solutions üçün naviqasiya linki əlavə edildi
   const navLinks = [
     { name: 'Home', href: '/#home' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Solutions', href: '/#solutions' },
-    { name: 'Partners', href: '/#partners' },
-    { name: 'About Us', href: '/#about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Solutions', href: '/solutions' },
+    { name: 'Partners', href: '/partners' },
+    { name: 'About Us', href: '/about' },
   ];
 
   const socialLinks = [
