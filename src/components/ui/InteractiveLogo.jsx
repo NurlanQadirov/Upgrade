@@ -14,8 +14,7 @@ const InteractiveLogo = () => {
 
   const springRotateX = useSpring(rotateX, { stiffness: 400, damping: 30 });
   const springRotateY = useSpring(rotateY, { stiffness: 400, damping: 30 });
-
-  // YENİ: İşıq effektinin pozisiyası üçün
+  
   const glowX = useTransform(x, [0, 400], [20, 80]);
   const glowY = useTransform(y, [0, 400], [20, 80]);
   const springGlowX = useSpring(glowX, { stiffness: 200, damping: 30 });
@@ -33,7 +32,6 @@ const InteractiveLogo = () => {
     y.set(200);
   };
   
-  // YENİ: Künc elementləri üçün animasiya variantları
   const cornerVariant = {
     hidden: { opacity: 0, scale: 0.5 },
     visible: { opacity: 0.5, scale: 1, transition: { duration: 0.3 } },
@@ -61,39 +59,40 @@ const InteractiveLogo = () => {
         }}
         whileHover={{ scale: 1.05 }}
       >
-        {/* YENİ: İşıq effekti (Glow) */}
-        <motion.div
-          className="absolute w-full h-full rounded-full"
-          style={{
-            background: `radial-gradient(circle at ${springGlowX.get()}% ${springGlowY.get()}%, rgba(0, 85, 255, 0.3), transparent 60%)`,
-            scale: 1.5,
-            opacity: 0.7,
-            filter: 'blur(30px)',
-          }}
-        />
+        {/* DƏYİŞİKLİK: İşıq effekti AnimatePresence içinə alındı */}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              className="absolute w-full h-full rounded-full"
+              style={{
+                background: `radial-gradient(circle at ${springGlowX.get()}% ${springGlowY.get()}%, rgba(0, 85, 255, 0.3), transparent 60%)`,
+                scale: 1.5,
+                filter: 'blur(30px)',
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.7 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            />
+          )}
+        </AnimatePresence>
 
-        {/* Logo şəkli */}
         <motion.img
           src={logoSymbol}
           alt="Upgrade Solutions Logo Symbol"
           className="w-auto h-auto max-w-[60%] md:max-w-[70%]"
           style={{
-            transform: 'translateZ(50px)', // Şəkli bir az qabağa çıxarır
+            transform: 'translateZ(50px)',
             filter: 'drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.4))',
           }}
         />
         
-        {/* YENİ: İnteraktiv HUD çərçivəsi */}
         <AnimatePresence>
           {isHovered && (
             <>
-              {/* Top-Left Corner */}
               <motion.div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-upgrade-cyan/70" variants={cornerVariant} initial="hidden" animate="visible" exit="exit" />
-              {/* Top-Right Corner */}
               <motion.div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-upgrade-cyan/70" variants={cornerVariant} initial="hidden" animate="visible" exit="exit" />
-              {/* Bottom-Left Corner */}
               <motion.div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-upgrade-cyan/70" variants={cornerVariant} initial="hidden" animate="visible" exit="exit" />
-              {/* Bottom-Right Corner */}
               <motion.div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-upgrade-cyan/70" variants={cornerVariant} initial="hidden" animate="visible" exit="exit" />
             </>
           )}

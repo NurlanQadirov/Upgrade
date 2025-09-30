@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-// YENİ: Loqo şəkli import edilir
 import fullLogo from '../../assets/logo-full.png'; 
 
 const Header = () => {
@@ -43,7 +42,6 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* DƏYİŞİKLİK: Mətn loqo şəkli ilə əvəz edildi */}
             <div className="flex-shrink-0">
               <Link to="/#home" className="flex items-center">
                 <img 
@@ -70,7 +68,6 @@ const Header = () => {
                 ))}
               </ul>
 
-              {/* DƏYİŞİKLİK: Dil dəyişmə düyməsi hover ilə işləyən formata qaytarıldı */}
               <div className="relative group">
                 <div className="flex items-center text-gray-300 hover:text-white text-sm font-medium cursor-pointer">
                   <span>EN</span>
@@ -91,7 +88,7 @@ const Header = () => {
               </div>
 
               {/* Əlaqə Düyməsi (Desktop) */}
-              <Link to="/#contact">
+              <Link to="/contact">
                 <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-upgrade-blue text-white font-bold py-2 px-5 rounded-full text-sm">
                   Contact Us
                 </motion.button>
